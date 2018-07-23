@@ -5,7 +5,7 @@ from flask import Flask, jsonify, render_template, request
 from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+app.config["SECRET_KEY"] = os.urandom(16)
 socketio = SocketIO(app)
 
 votes = {"yes": 0, "no": 0, "maybe": 0}
